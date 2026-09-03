@@ -1,0 +1,150 @@
+:root {
+  --bg-gradient: linear-gradient(135deg, #fbcfe8 0%, #f472b6 40%, #e879f9 70%, #fef08a 100%);
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --text-dark: #2d1a29;
+  --text-muted: #6b5266;
+  --accent-pink: #db2777;
+  --accent-hover: #be185d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+/* Header & Navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 4rem;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.team-name {
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-transform: lowercase;
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover {
+  opacity: 0.7;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-pink);
+  text-transform: uppercase;
+}
+
+.main-title {
+  font-size: 3.2rem;
+  margin: 1.5rem 0 1rem;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--accent-pink);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--text-dark);
+}
+
+.btn-secondary:hover {
+  background-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Content Sections */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 6rem;
+}
+
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
