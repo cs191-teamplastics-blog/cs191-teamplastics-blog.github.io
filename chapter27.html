@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 27 Summary - Project Scheduling | CS 191</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Styling for embedded chapter diagrams */
+    .figure-container {
+      margin: 1.5rem 0;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+    .figure-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .figure-caption {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="team-name">team plastics</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">← Back to Home</a></li>
+      <li><a href="#project-plan">Project Plan</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Content -->
+  <main class="container">
+    <header style="margin-bottom: 2rem;">
+      <span class="badge">Chapter 27 Presentation</span>
+      <h1 style="font-size: 2.5rem; margin-top: 0.5rem;">Software Project Scheduling</h1>
+      <p style="color: var(--text-muted);">Summary based on Pressman & Maxim's <em>Software Engineering: A Practitioner's Approach</em>.</p>
+    </header>
+
+    <section class="card">
+      <h2>1. Basic Scheduling Concepts</h2>
+      <p>Projects fall behind schedule due to unrealistic deadlines, changing customer requirements, underestimation of effort, unconsidered risks, or poor tracking.</p>
+      <ul>
+        <li><strong>Managing Unrealistic Deadlines:</strong> Perform detailed historical estimates, propose an incremental strategy, and present options clearly.</li>
+        <li><strong>Critical Path:</strong> The sequence of tasks that determines overall project duration. If critical tasks fall behind, the completion date slips.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>2. People, Effort, & The PNR Curve</h2>
+      <p>Adding people to a late project increases communication paths and delay. The Putnam-Norden-Rayleigh (PNR) Curve demonstrates the relationship between effort applied and delivery time.</p>
+      
+      <!-- Figure 27.1 -->
+      <div class="figure-container">
+        <img src="pnr-curve.png" alt="Figure 27.1: Effort and delivery time relationship">
+        <div class="figure-caption">Figure 27.1: The relationship between effort and delivery time (PNR Curve)</div>
+      </div>
+
+      <ul>
+        <li><strong>Impossible Region:</strong> Compressing delivery time beyond ~$0.75t_d$ drastically increases failure risk.</li>
+        <li><strong>40-20-40 Rule:</strong> Recommended effort distribution — 40% Analysis/Design, 20% Coding, 40% Testing.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>3. Task Networks & Scheduling Tools</h2>
+      <p>A task network graphically represents task flow, sequence, and dependencies across a time line.</p>
+
+      <!-- Figure 27.2 -->
+      <div class="figure-container">
+        <img src="task-network.png" alt="Figure 27.2: Task network for concept development">
+        <div class="figure-caption">Figure 27.2: Macroscopic Task Network for Concept Development</div>
+      </div>
+
+      <p>Schedules are typically visualized using Time-Line (Gantt) Charts and Project Tables.</p>
+
+      <!-- Figure 27.3 -->
+      <div class="figure-container">
+        <img src="timeline-chart.png" alt="Figure 27.3: Time-line chart example">
+        <div class="figure-caption">Figure 27.3: Example Time-Line (Gantt) Chart</div>
+      </div>
+
+      <!-- Figure 27.4 -->
+      <div class="figure-container">
+        <img src="project-table.png" alt="Figure 27.4: Project table example">
+        <div class="figure-caption">Figure 27.4: Example Project Tracking Table</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4. WebApp Scheduling & Earned Value Analysis</h2>
+      <p>WebApp project schedules evolve from macroscopic increment projections into detailed task breakdowns.</p>
+
+      <!-- Figure 27.5 -->
+      <div class="figure-container">
+        <img src="webapp-timeline.png" alt="Figure 27.5: Time line for macroscopic project schedule">
+        <div class="figure-caption">Figure 27.5: Macroscopic Schedule for WebApp Increments</div>
+      </div>
+
+      <p><strong>Earned Value Analysis (EVA):</strong> Quantitative metric evaluating schedule performance using $SPI = \frac{BCWP}{BCWS}$.</p>
+    </section>
+  </main>
+
+</body>
+</html>
