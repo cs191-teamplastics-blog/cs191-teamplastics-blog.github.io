@@ -1,118 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 27 Summary - Project Scheduling | CS 191</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    /* Styling for embedded chapter diagrams */
-    .figure-container {
-      margin: 1.5rem 0;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.6);
-      padding: 1rem;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.8);
-    }
-    .figure-container img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    .figure-caption {
-      margin-top: 0.5rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 27: Project Scheduling — Team Plastics</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Top Navbar -->
   <nav class="navbar">
     <div class="nav-brand">
       <span class="team-name">team plastics</span>
     </div>
-    <ul class="nav-links">
-      <li><a href="index.html">← Back to Home</a></li>
-      <li><a href="#project-plan">Project Plan</a></li>
-    </ul>
+    <span class="course-tag">CH. 27 / SCHEDULING</span>
   </nav>
 
-  <!-- Page Content -->
-  <main class="container">
-    <header style="margin-bottom: 2rem;">
-      <span class="badge">Chapter 27 Presentation</span>
-      <h1 style="font-size: 2.5rem; margin-top: 0.5rem;">Software Project Scheduling</h1>
-      <p style="color: var(--text-muted);">Summary based on Pressman & Maxim's <em>Software Engineering: A Practitioner's Approach</em>.</p>
-    </header>
+  <main class="page-content">
+    <a href="index.html" class="back-link">← back home</a>
 
-    <section class="card">
-      <h2>1. Basic Scheduling Concepts</h2>
-      <p>Projects fall behind schedule due to unrealistic deadlines, changing customer requirements, underestimation of effort, unconsidered risks, or poor tracking.</p>
-      <ul>
-        <li><strong>Managing Unrealistic Deadlines:</strong> Perform detailed historical estimates, propose an incremental strategy, and present options clearly.</li>
-        <li><strong>Critical Path:</strong> The sequence of tasks that determines overall project duration. If critical tasks fall behind, the completion date slips.</li>
-      </ul>
-    </section>
+    <h1 class="main-title" style="font-size: clamp(1.9rem, 4vw, 2.6rem); margin-bottom: 0.5rem;">Chapter 27: Project Scheduling</h1>
+    <p class="subtitle" style="margin-bottom: 2rem;">Summary of Pressman &amp; Maxim, <em>Software Engineering: A Practitioner's Approach</em>, 7th ed.</p>
 
-    <section class="card">
-      <h2>2. People, Effort, & The PNR Curve</h2>
-      <p>Adding people to a late project increases communication paths and delay. The Putnam-Norden-Rayleigh (PNR) Curve demonstrates the relationship between effort applied and delivery time.</p>
-      
-      <!-- Figure 27.1 -->
-      <div class="figure-container">
-        <img src="pnr-curve.png" alt="Figure 27.1: Effort and delivery time relationship">
-        <div class="figure-caption">Figure 27.1: The relationship between effort and delivery time (PNR Curve)</div>
-      </div>
+    <dl class="quick-look">
+      <dt>What it is</dt>
+      <dd>Turning a plan into a network of software tasks, assigning who owns each one, and adjusting the network as risks become real. In short: connecting the dots between estimation and delivery.</dd>
+      <dt>Who does it</dt>
+      <dd>Project managers, drawing on information from the engineers doing the work — and engineers themselves at the individual task level.</dd>
+      <dt>Why it matters</dt>
+      <dd>Tasks run in parallel and depend on each other in ways that are nearly impossible to track without a schedule, especially on anything larger than a toy project.</dd>
+      <dt>Work product</dt>
+      <dd>A project schedule (task network + time-line chart) plus the tracking data that goes with it.</dd>
+    </dl>
 
-      <ul>
-        <li><strong>Impossible Region:</strong> Compressing delivery time beyond ~$0.75t_d$ drastically increases failure risk.</li>
-        <li><strong>40-20-40 Rule:</strong> Recommended effort distribution — 40% Analysis/Design, 20% Coding, 40% Testing.</li>
-      </ul>
-    </section>
+    <h2><span class="section-num">27.1</span>Why software ships late</h2>
+    <p>Pressman opens with a familiar story: an engineer reports "90% done" for the entire back half of a project. The chapter traces late delivery to a short list of root causes — deadlines set by people outside the team, requirements that change without a matching schedule change, honest underestimates of effort, risks nobody planned for, technical or human surprises, miscommunication, and management being slow to admit a project is slipping.</p>
+    <p>When a deadline genuinely can't be met, the recommended move isn't to accept it or to refuse it — it's to estimate honestly from historical data, propose an incremental delivery that hits the deadline with reduced scope, and bring that trade-off to the customer rather than quietly hoping the numbers work out.</p>
 
-    <section class="card">
-      <h2>3. Task Networks & Scheduling Tools</h2>
-      <p>A task network graphically represents task flow, sequence, and dependencies across a time line.</p>
+    <h2><span class="section-num">27.2</span>Basic scheduling principles</h2>
+    <p>Every schedule rests on the same seven ideas:</p>
+    <ul>
+      <li><strong>Compartmentalization</strong> — break the project into manageable activities and tasks.</li>
+      <li><strong>Interdependency</strong> — work out which tasks must be sequential and which can run in parallel.</li>
+      <li><strong>Time allocation</strong> — give every task a start date, an end date, and an effort budget.</li>
+      <li><strong>Effort validation</strong> — never schedule more concurrent effort than the team actually has capacity for.</li>
+      <li><strong>Defined responsibilities</strong> — every task belongs to a named person.</li>
+      <li><strong>Defined outcomes</strong> — every task produces a concrete work product.</li>
+      <li><strong>Defined milestones</strong> — outcomes get reviewed and approved, and that review is the milestone.</li>
+    </ul>
 
-      <!-- Figure 27.2 -->
-      <div class="figure-container">
-        <img src="task-network.png" alt="Figure 27.2: Task network for concept development">
-        <div class="figure-caption">Figure 27.2: Macroscopic Task Network for Concept Development</div>
-      </div>
+    <h3>People, effort, and the PNR curve</h3>
+    <p>Adding people to a late project usually makes it later — new hires need ramp-up time from the very people who are already behind, and every additional person adds communication overhead. The Putnam-Norden-Rayleigh curve formalizes this: effort rises sharply as you try to compress delivery time, and pushing much past about 75% of the "natural" schedule moves the project into what Pressman calls the impossible region. The flip side is more useful than it sounds — stretching a deadline can cut required effort dramatically. One worked example in the chapter: a 12 person-year project needing 8 people to finish in 1.3 years could instead finish in 1.75 years with only 4 people.</p>
 
-      <p>Schedules are typically visualized using Time-Line (Gantt) Charts and Project Tables.</p>
+    <h3>Where the effort actually goes</h3>
+    <p>The traditional rule of thumb is <strong>40–20–40</strong>: 40% of effort on front-end analysis and design, 20% on coding, 40% on back-end testing. In practice the ranges are wider — planning is usually just 2–3%, requirements 10–25%, design 20–25%, coding 15–20%, and testing 30–40% (higher still for safety-critical software). The headline takeaway: coding is the smallest line item, not the biggest.</p>
 
-      <!-- Figure 27.3 -->
-      <div class="figure-container">
-        <img src="timeline-chart.png" alt="Figure 27.3: Time-line chart example">
-        <div class="figure-caption">Figure 27.3: Example Time-Line (Gantt) Chart</div>
-      </div>
+    <h2><span class="section-num">27.3–27.4</span>Task sets and task networks</h2>
+    <p>A <strong>task set</strong> is the collection of tasks, milestones, work products, and quality checks needed to finish a given kind of project — concept development, new application, enhancement, maintenance, or reengineering each call for a different level of rigor. A macroscopic schedule (major actions only) gets refined into a detailed schedule as the project proceeds, by breaking each action into subtasks with their own reviews and outcomes.</p>
+    <p>A <strong>task network</strong> (or activity network) is the graph that shows how those tasks depend on each other — which is exactly the input a scheduling tool needs to compute the <strong>critical path</strong>: the chain of tasks that determines how long the whole project takes.</p>
 
-      <!-- Figure 27.4 -->
-      <div class="figure-container">
-        <img src="project-table.png" alt="Figure 27.4: Project table example">
-        <div class="figure-caption">Figure 27.4: Example Project Tracking Table</div>
-      </div>
-    </section>
+    <h2><span class="section-num">27.5</span>Scheduling, time-lines, and tracking</h2>
+    <p><strong>PERT</strong> and the <strong>critical path method (CPM)</strong> are the two classic techniques here. Both take the task network as input and let you find the critical path, generate "most likely" time estimates, and calculate a time window for each task. The visual output most teams actually use is a <strong>time-line (Gantt) chart</strong>: tasks down the left side, bars across the calendar, diamonds marking milestones, overlapping bars showing where work runs concurrently.</p>
+    <p>Tracking progress against that chart happens through status meetings, review outcomes, comparing planned vs. actual start dates, informal check-ins, and — for a quantitative view — earned value analysis (below). When a deadline is truly fixed and won't move, teams sometimes use <strong>time-boxing</strong>: work on a task stops at its boundary (±10%) regardless of whether it's "done," and anything unfinished is deferred to the next increment.</p>
 
-    <section class="card">
-      <h2>4. WebApp Scheduling & Earned Value Analysis</h2>
-      <p>WebApp project schedules evolve from macroscopic increment projections into detailed task breakdowns.</p>
+    <h3>Object-oriented &amp; WebApp projects</h3>
+    <p>OO projects are iterative, so instead of dated milestones the chapter defines completion criteria: analysis is "done" when classes, attributes, and relationships are reviewed; design is "done" when subsystems and responsibilities are assigned and reviewed; and so on through programming and testing.</p>
+    <p>WebApp scheduling works at two levels too: a macroscopic schedule maps out when each increment (e.g., product info, then ordering, then account access) ships, and each increment is then broken into its own detailed task list — design the interface, design the navigation, review with stakeholders, and so on — once that increment is actually underway.</p>
 
-      <!-- Figure 27.5 -->
-      <div class="figure-container">
-        <img src="webapp-timeline.png" alt="Figure 27.5: Time line for macroscopic project schedule">
-        <div class="figure-caption">Figure 27.5: Macroscopic Schedule for WebApp Increments</div>
-      </div>
+    <h2><span class="section-num">27.6</span>Earned value analysis</h2>
+    <p>Earned value analysis (EVA) turns "percent complete" into a number instead of a gut feeling, and Pressman notes it's considered reliable from as little as 15% into a project.</p>
 
-      <p><strong>Earned Value Analysis (EVA):</strong> Quantitative metric evaluating schedule performance using $SPI = \frac{BCWP}{BCWS}$.</p>
-    </section>
+    <table>
+      <thead>
+        <tr><th>Term</th><th>Meaning</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>BCWS</td><td>Budgeted cost of work scheduled — effort planned for tasks due by now</td></tr>
+        <tr><td>BAC</td><td>Budget at completion — sum of BCWS across every task in the project</td></tr>
+        <tr><td>BCWP</td><td>Budgeted cost of work performed — planned effort for tasks actually finished</td></tr>
+        <tr><td>ACWP</td><td>Actual cost of work performed — effort really spent on finished tasks</td></tr>
+        <tr><td>SPI</td><td>BCWP ÷ BCWS — schedule efficiency; close to 1.0 is on track</td></tr>
+        <tr><td>SV</td><td>BCWP − BCWS — schedule variance</td></tr>
+        <tr><td>CPI</td><td>BCWP ÷ ACWP — cost efficiency; close to 1.0 is on budget</td></tr>
+        <tr><td>CV</td><td>BCWP − ACWP — cost variance</td></tr>
+      </tbody>
+    </table>
+
+    <h2><span class="section-num">27.7</span>Takeaway</h2>
+    <p>Scheduling is where estimation and risk analysis turn into an actual road map. Compartmentalize the process, build the task network, find the critical path, generate a time-line chart, and then track against it — one day at a time, since Fred Brooks's answer for how projects fall behind is exactly that simple.</p>
+
+    <div class="term-row">
+      <span class="term-chip">Task network</span>
+      <span class="term-chip">Critical path</span>
+      <span class="term-chip">PERT / CPM</span>
+      <span class="term-chip">Gantt chart</span>
+      <span class="term-chip">Time-boxing</span>
+      <span class="term-chip">Earned value</span>
+      <span class="term-chip">PNR curve</span>
+    </div>
   </main>
+
+  <!-- Footer -->
+  <footer>© CS 191 Team Plastics</footer>
 
 </body>
 </html>
