@@ -1,34 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CS 191: Software Engineering Blog</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    /* Styling to perfectly center content on the main landing page */
-    body {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 100vh;
-    }
-    .hero-container {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS 191: Software Engineering Blog</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -37,28 +15,47 @@
     <div class="nav-brand">
       <span class="team-name">team plastics</span>
     </div>
+    <span class="course-tag">CS191 / WFR1</span>
   </nav>
 
-  <!-- Centered Landing Content -->
+  <!-- Hero -->
   <div class="hero-container">
-    <header class="hero-content" style="text-align: center;">
-      <span class="badge">CS 191 WFR1</span>
-      <h1 class="main-title">Software Engineering</h1>
-      <p class="subtitle">Documenting our journey, insights, and deliverables for CS 191.</p>
-      
-      <!-- Main Navigation Buttons -->
-      <div class="hero-buttons">
-        <a href="chapter27.html" class="btn btn-secondary">Chapter 27 Presentation</a>
-        <a href="projectplan.html" class="btn btn-secondary">Project Plan</a>
-        <a href="about.html" class="btn btn-secondary">About</a>
+    <div class="hero-content">
+      <span class="reg-mark tl"></span>
+      <span class="reg-mark tr"></span>
+      <span class="reg-mark bl"></span>
+      <span class="reg-mark br"></span>
+
+      <div class="hero-grid">
+        <header class="hero-copy">
+          <h1 class="main-title">Software<br>Engineering</h1>
+          <div class="accent-rule"></div>
+          <p class="subtitle">Documenting our journey, insights, and deliverables for CS 191.</p>
+        </header>
+
+        <nav class="hero-links" aria-label="Site sections">
+          <a href="chapter27.html" class="hero-link">
+            <span class="swatch"></span>
+            <span class="label">Chapter 27 Presentation</span>
+            <span class="go">open →</span>
+          </a>
+          <a href="projectplan.html" class="hero-link">
+            <span class="swatch"></span>
+            <span class="label">Project Plan</span>
+            <span class="go">open →</span>
+          </a>
+          <a href="about.html" class="hero-link">
+            <span class="swatch"></span>
+            <span class="label">About</span>
+            <span class="go">open →</span>
+          </a>
+        </nav>
       </div>
-    </header>
+    </div>
   </div>
 
   <!-- Footer -->
-  <footer style="text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.9rem;">
-    © CS 191 Team Plastics
-  </footer>
+  <footer>© CS 191 Team Plastics</footer>
 
 </body>
 </html>
