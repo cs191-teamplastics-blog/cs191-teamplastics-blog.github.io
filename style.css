@@ -503,6 +503,15 @@ a {
   background: #fff;
 }
 
+.video-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 12px;
+  background: #000;
+}
+
 .pdf-fallback {
   display: flex;
   flex-direction: column;
